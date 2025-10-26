@@ -1,4 +1,7 @@
 // firebase.js
+// BACKUP: Web SDK version, not used for Android native build
+// This file has been renamed to firebase_backup.js
+// ...existing code...
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import {
   getAuth,

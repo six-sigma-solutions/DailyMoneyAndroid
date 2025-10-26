@@ -1,0 +1,3 @@
+// BACKUP: Web SDK version, not used for Android native build
+// This file was lib/firebase.ts
+// ...existing code moved here for backup...
