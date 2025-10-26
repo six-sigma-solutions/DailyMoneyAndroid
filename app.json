@@ -12,6 +12,7 @@
     },
     "android": {
       "package": "com.sathish2882sk.dailymoneyapp",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/DailyMoney.png",
         "backgroundColor": "#E6F4FE"
@@ -34,8 +35,7 @@
         }
       ],
       "expo-router",
-      "@react-native-firebase/app",
-      "@react-native-firebase/auth"
+      "@react-native-firebase/app"
     ],
     "sdkVersion": "54.0.0",
     "extra": {
