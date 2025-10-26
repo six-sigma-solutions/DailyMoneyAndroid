@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
-import { signUp } from './firebase';
+import { signUp } from './firebase.native';
 
 export default function RegisterScreen() {
   const [email, setEmail] = useState('');

@@ -21,6 +21,8 @@
       "output": "static",
       "favicon": "./assets/DailyMoney.png"
     },
+    "entryPoint": "expo-router/entry",
+    "assetBundlePatterns": ["**/*"],
     "plugins": [
       [
         "expo-splash-screen",
@@ -31,7 +33,9 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "expo-router"
+      "expo-router",
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth"
     ],
     "sdkVersion": "54.0.0",
     "extra": {

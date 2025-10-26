@@ -17,7 +17,7 @@ export default function FounderMsg() {
         <View style={styles.founderMessageCard}>
           {/* Header Section */}
           <View style={styles.cardHeaderBg}>
-            <Text style={styles.headerTitle}>Founder's Message</Text>
+            <Text style={styles.headerTitle}>Founder&apos;s Message</Text>
             <Text style={styles.headerSubtitle}>A Note on Vision and Commitment</Text>
           </View>
 
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   messageImage: {
     width: '100%',
     height: 440,
-    borderRadius: 15,
+   
     objectFit:'cover',
     
     resizeMode: 'cover',

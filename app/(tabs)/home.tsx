@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Linking } from "react-native";
-import {
+import { Linking ,
   StyleSheet,
   View,
   Text,
@@ -90,11 +89,11 @@ export default function HomeScreen() {
       <PopupModal
         visible={showPopup}
         onClose={() => setShowPopup(false)}
-        title={"Welcome to Daily Money 💰"}
+        title={"Welcome to DM 💰"}
         // pass a Text node so we can style the popup message white
         message={
           <Text style={{ color: '#ffffff', fontSize: 22, fontWeight: '600', textAlign: 'center', lineHeight: 34 }}>
-            For the betterment of all people worldwide — Especially those driving innovation in the Global IT Industry.
+            "For the betterment of all people across the world — Especially those driving innovation in the Global IT Community."
           </Text>
         }
         buttonText={"Get in →"}
@@ -110,7 +109,8 @@ export default function HomeScreen() {
       >
         <View style={styles.bannerInner}>
           <Text style={styles.bannerTitle}>DM - Daily Message</Text>
-          <Text style={styles.bannerSubtitle}> Health and Freedom</Text>
+          <Text style={styles.bannerSubtitle}>Health and Freedom</Text>
+          <Text style={styles.bannerSubtitle}>The World Premium Healthy and Happy Community.</Text>
 
         </View>
       </LinearGradient>
@@ -172,8 +172,10 @@ export default function HomeScreen() {
           <Text style={styles.heroSub}>Health & Wealth. </Text>
           <Text style={styles.heroSubtitle}>Independent for Entire life.</Text>
           <Text style={styles.heroDesc}>
-            DM stands for discipline, unity and freedom. Together, we
-            are shaping a future of health, wealth, and limitless opportunities.
+            DM stands for discipline, unity and freedom.
+          </Text>
+          <Text style={styles.heroDesc}>
+          Together, we are shaping a future of health, wealth, and limitless opportunities.
           </Text>
           <Text style={styles.heroDesc}>
             With DM, every step forward is a step toward freedom, and a

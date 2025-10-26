@@ -6,7 +6,7 @@ import LoginScreen from './LoginScreen';
 import RegisterScreen from './RegisterScreen';
 import ForgotPasswordScreen from './ForgotPasswordScreen';
 import HomeScreen from './HomeScreen';
-import { auth, onAuthStateChanged, signOut } from './firebase';
+import { onAuthStateChanged, signOut } from './firebase.native';
 
 const Stack = createNativeStackNavigator();
 

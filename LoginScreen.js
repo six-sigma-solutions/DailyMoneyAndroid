@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { signIn } from './firebase';
+import { signIn } from './firebase.native';
 
 export default function LoginScreen() {
   const navigation = useNavigation();

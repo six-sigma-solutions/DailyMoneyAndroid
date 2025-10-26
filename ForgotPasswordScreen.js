@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
-import { resetPassword } from './firebase';
+import { resetPassword } from './firebase.native';
 
 export default function ForgotPasswordScreen() {
   const [email, setEmail] = useState('');
