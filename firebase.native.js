@@ -1,4 +1,23 @@
-// Native-first Firebase wrapper that falls back to the web SDK in non-prebuilt runtimes
+import auth from '@react-native-firebase/auth';
+
+export const authInstance = auth();
+
+export function signIn(email, password) {
+  return auth().signInWithEmailAndPassword(email, password);
+}
+export function signUp(email, password) {
+  return auth().createUserWithEmailAndPassword(email, password);
+}
+export function resetPassword(email) {
+  return auth().sendPasswordResetEmail(email);
+}
+export function onAuthStateChanged(cb) {
+  return auth().onAuthStateChanged(cb);
+}
+export function signOut() {
+  return auth().signOut();
+}
+export default authInstance;// Native-first Firebase wrapper that falls back to the web SDK in non-prebuilt runtimes
 // (e.g. Expo Go). Avoids requiring native modules at top-level so Metro doesn't crash
 // when the native RNFB modules are not present.
 
