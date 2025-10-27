@@ -39,7 +39,7 @@ export default function WomenEmpowerment() {
                         Womens empowerment is not a charity — it is justice, progress, and the future.
                     </Text>
                     <Text style={[styles.point, { color: "#2e7d32" }]}>
-                        Empowerment means women stand <Text style={styles.highlight}>shoulder to shoulder</Text>, equal in strength and purpose.
+                       Empowerment is the recognition that women are not behind, not ahead, but standing <Text style={styles.highlight}>shoulder to shoulder.</Text>
                     </Text>
                 </View>
 

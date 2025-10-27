@@ -37,7 +37,7 @@ export default function MyLifeLayout() {
         options={{ title: "Women Empowerment" }}
       />
       <MaterialTopTabs.Screen name="students" options={{ title: "Students" }} />
-      <MaterialTopTabs.Screen name="elder" options={{ title: "Elder" }} />
+  <MaterialTopTabs.Screen name="elder" options={{ title: "Elders" }} />
     </MaterialTopTabs>
   );
 }

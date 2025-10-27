@@ -119,7 +119,7 @@ export default function Health() {
           </Text>
 
           <Text style={styles.footerQuoteEnglish}>
-            💧 “Eat your water. Sip your meals. The secret of true healthy life.”
+            💧Eat your water. Sip your meals."The secret of true healthy life."
           </Text>
         </View>
       </View>

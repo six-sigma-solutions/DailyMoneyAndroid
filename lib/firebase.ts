@@ -1,17 +1,14 @@
+
 import { initializeApp, getApps, getApp } from "firebase/app";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  sendPasswordResetEmail,
-  signOut as firebaseSignOut,
-  onAuthStateChanged,
-  User
-} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut as firebaseSignOut, onAuthStateChanged, User } from "firebase/auth";
 import { firebaseConfig } from "../firebaseConfig";
 
+
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+
+
+const auth = getAuth(app);
+export { auth };
 
 export async function signIn(email: string, password: string) {
   const cred = await signInWithEmailAndPassword(auth, email, password);

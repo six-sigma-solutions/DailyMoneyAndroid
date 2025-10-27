@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { View, Image, Text, TouchableOpacity, StyleSheet, Platform, Modal, TouchableWithoutFeedback, useWindowDimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link , useRouter } from "expo-router";
-const { signOut } = Platform.OS === 'web' ? require('../firebase.js') : require('../firebase.native');
 import { useAuth } from '../contexts/AuthContext';
 
 const BAR_HEIGHT = 65;       // fixed visual height for the row
@@ -26,6 +25,7 @@ export default function Navbar() {
   } catch (e) {
     logoSource = null;
   }
+
 
   async function onLogout() {
     try {
@@ -100,12 +100,7 @@ export default function Navbar() {
               try {
                 await onLogout();
               } catch (e) {
-                try {
-                  await signOut();
-                  router.replace('/signin');
-                } catch (er) {
-                  console.error(er);
-                }
+                console.error(e);
               } finally {
                 setSigningOut(false);
               }

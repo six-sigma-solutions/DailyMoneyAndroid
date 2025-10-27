@@ -38,7 +38,7 @@ export default function Entrepreneur() {
         {
           image: require("../../../assets/entp2.jpg"),
           text: `"I'm ready to start, build, and grow something of my own."
-"I’m ready to take my first step toward independence."
+"I’m ready to take my first step towards independence."
 "I’m ready to shape my own success."`,
           bgColor: "#b9b9b2ff",
           textColor: "#000",
@@ -83,7 +83,7 @@ export default function Entrepreneur() {
           text: `"I am ready to take a risk for success."
 "I’m willing to take chances for success."
 "I’m ready to embrace challenges."
-"I’m not afraid to take bold steps toward my goals."`,
+"I’m not afraid to take bold steps towards my goal."`,
           bgColor: "#dbf79cff",
           textColor: "#000000ff",
         },

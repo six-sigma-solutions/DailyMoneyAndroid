@@ -113,7 +113,7 @@ const Visionmission: React.FC = () => {
           ]}
         >
           <Text style={styles.heroHeading}>
-            Improving the world&apos;s health, happiness, and prosperity{"\n"}Deliver
+            Improving the world&apos;s health, happiness, and prosperity{"\n"}deliver
             with precision.
           </Text>
           <Text style={styles.heroParagraph}>

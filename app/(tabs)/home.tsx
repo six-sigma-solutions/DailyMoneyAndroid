@@ -23,13 +23,15 @@ const solutions = [
 const philosophyPoints = [
   "Your Partner in DM, Health, and Wealth for Life.",
   "Every Stage, Every Step , Health & Wealth Solutions.",
-  "Balance Your DM. Build Your Health. Grow Your Wealth.",
-  "Small DM Wins, Big Health & Wealth Gains.",
+  "DM Your Balance Life. Build Your Health. Grow Your Wealth.",
+  "Small Income Wins, Big Health & Wealth Gains.",
   "Simplify DM. Strengthen Health. Secure Wealth.",
   "Master Your Day, Master Your Health, Master Your Well-being.",
   "Turn Daily Financial Actions into a Lifetime of Health and Wealth.",
   "Live Well, Live Wealthy, Every Single Day.",
 ];
+
+
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -45,9 +47,9 @@ export default function HomeScreen() {
   const [assetsReady, setAssetsReady] = useState(false);
   const [rerenderKey, setRerenderKey] = useState(0);
 
-// DM hero media fallback URLs (edit as needed)
-const DM_HERO_IMAGE_FALLBACK = "https://placehold.co/350x350/png"; // Replace with your DM phone PNG URL if you have one
-const DM_HERO_VIDEO_URL = ""; // Optional remote MP4 url. Keep empty if you don’t have one.
+  // DM hero media fallback URLs (edit as needed)
+  const DM_HERO_IMAGE_FALLBACK = "https://placehold.co/350x350/png"; // Replace with your DM phone PNG URL if you have one
+  const DM_HERO_VIDEO_URL = ""; // Optional remote MP4 url. Keep empty if you don’t have one.
 
   useEffect(() => {
     let mounted = true;
@@ -104,7 +106,7 @@ const DM_HERO_VIDEO_URL = ""; // Optional remote MP4 url. Keep empty if you don�
         colors={["#cedb1c", "#79d8d8"]}
         start={[0, 0]}
         end={[1, 1]}
-        style={styles.topBanner}
+        style={[styles.topBanner, { marginTop: 0 }]}
       >
         <View style={styles.bannerInner}>
           <Text style={styles.bannerTitle}>DM - Daily Message</Text>
