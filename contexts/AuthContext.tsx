@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { onAuthStateChanged, signOutUser } from '../lib/firebase';
+import { onAuth, signOut } from '../lib/firebase';
 
 type AuthContextType = {
   user: any | null;
@@ -24,16 +24,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setLoading(false);
     }, 5000);
 
-    (async () => {
-      unsub = await onAuthStateChanged((u) => {
-        // auth responded; clear the safety timeout and update state
-        try {
-          clearTimeout(safetyTimeout);
-        } catch (e) {}
-        setUser(u);
-        setLoading(false);
-      });
-    })();
+    unsub = onAuth((u) => {
+      // auth responded; clear the safety timeout and update state
+      try {
+        clearTimeout(safetyTimeout);
+      } catch (e) {}
+      setUser(u);
+      setLoading(false);
+    });
 
     return () => {
       try {
@@ -47,9 +45,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  async function signOut() {
+
+  async function signOutHandler() {
     try {
-      await signOutUser();
+      await signOut();
       setUser(null);
     } catch (err) {
       console.warn('signOut failed', err);
@@ -57,7 +56,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, loading, signOut }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, loading, signOut: signOutHandler }}>{children}</AuthContext.Provider>
   );
 }
 

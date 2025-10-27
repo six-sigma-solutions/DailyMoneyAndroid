@@ -1,17 +1,12 @@
-// firebase.ts
-import { initializeApp, getApps } from "firebase/app";
-import { getAuth } from "firebase/auth";
-const firebaseConfig = {
+
+export const firebaseConfig = {
   apiKey: "AIzaSyAaI-bvSXddWBePYlQxZk78qn1L2da3FY8",
   authDomain: "react-native-dm.firebaseapp.com",
   projectId: "react-native-dm",
   storageBucket: "react-native-dm.appspot.com",
   messagingSenderId: "718070565957",
-  appId: "1:718070565957:android:bce9544431a2ffb665672c",
+  appId: "1:718070565957:android:4ca8ab1c774de08f65672c",
 };
-const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export default app;
 
 
 // Paste your Firebase web config here. You can find this in the Firebase console -> Project settings -> Your apps (Web)

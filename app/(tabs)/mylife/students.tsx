@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import AutoScrollView from "../../../components/AutoScrollView";
 import { useRouter } from "expo-router";
+import { Platform } from 'react-native';
 
 export default function Students() {
   const router = useRouter();
@@ -24,7 +25,7 @@ export default function Students() {
         toValue: 1,
         duration: 800,
         delay: idx * 300,
-        useNativeDriver: true,
+  useNativeDriver: Platform.OS !== 'web',
       }).start();
     });
   }, [animValues]);

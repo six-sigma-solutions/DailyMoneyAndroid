@@ -231,10 +231,16 @@ const styles = StyleSheet.create({
     padding: 18,
     borderRadius: 12,
     marginBottom: 30,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 5,
+    ...Platform.select({
+      web: { boxShadow: '0px 2px 5px rgba(0,0,0,0.1)' },
+      ios: {
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 5,
+      },
+      android: { elevation: 3 },
+    }),
     elevation: 3,
   },
   heading: {

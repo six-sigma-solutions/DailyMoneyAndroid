@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { signOut, onAuthStateChanged } from './firebase.native';
+import { Platform } from 'react-native';
+const { signOut, onAuthStateChanged } = Platform.OS === 'web' ? require('./firebase.js') : require('./firebase.native');
 import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {

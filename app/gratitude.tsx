@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import AutoScrollView from "../components/AutoScrollView";
 import { useRouter } from "expo-router";
+import { Platform } from 'react-native';
 
 const Gratitude: React.FC = () => {
   const router = useRouter();
@@ -22,12 +23,12 @@ const Gratitude: React.FC = () => {
       Animated.timing(fadeAnim, {
         toValue: 1,
         duration: 800,
-        useNativeDriver: true,
+  useNativeDriver: Platform.OS !== 'web',
       }),
       Animated.timing(translateY, {
         toValue: 0,
         duration: 800,
-        useNativeDriver: true,
+  useNativeDriver: Platform.OS !== 'web',
       }),
     ]).start();
   }, [fadeAnim, translateY]);
@@ -118,9 +119,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     borderWidth: 1,
     borderColor: "rgba(255, 204, 0, 0.3)",
-    shadowColor: "#000",
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
+    ...Platform.select({
+      web: { boxShadow: '0px 4px 10px rgba(0,0,0,0.3)' },
+      ios: {
+        shadowColor: '#000',
+        shadowOpacity: 0.3,
+        shadowRadius: 10,
+      },
+      android: { elevation: 6 },
+    }),
     elevation: 6,
     maxWidth: 900,
     width: "95%",
@@ -132,9 +139,14 @@ const styles = StyleSheet.create({
     color: "#ffcc00",
     textAlign: "center",
     marginBottom: 30,
-    textShadowColor: "rgba(0,0,0,0.6)",
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 4,
+    ...Platform.select({
+      web: { textShadow: '2px 2px 4px rgba(0,0,0,0.6)' },
+      default: {
+        textShadowColor: 'rgba(0,0,0,0.6)',
+        textShadowOffset: { width: 2, height: 2 },
+        textShadowRadius: 4,
+      },
+    }),
   },
   textContainer: {
     marginBottom: 35,
@@ -159,9 +171,15 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 40,
     borderRadius: 10,
-    shadowColor: "#ffcc00",
-    shadowOpacity: 0.4,
-    shadowRadius: 10,
+    ...Platform.select({
+      web: { boxShadow: '0px 4px 10px rgba(255,204,0,0.4)' },
+      ios: {
+        shadowColor: '#ffcc00',
+        shadowOpacity: 0.4,
+        shadowRadius: 10,
+      },
+      android: { elevation: 5 },
+    }),
     elevation: 5,
   },
   buttonText: {

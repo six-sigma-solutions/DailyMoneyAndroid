@@ -12,16 +12,8 @@ import {
   signOut as firebaseSignOut,
 } from 'firebase/auth';
 
-// Prefer the project's firebaseConfig.ts when available
-let firebaseConfig = undefined;
-try {
-   
-  firebaseConfig = require('./firebaseConfig').default;
-} catch (e) {
-  // no-op; keep undefined and rely on environment variables if needed
-}
-
-const app = !getApps().length ? initializeApp(firebaseConfig || {}) : getApp();
+import { firebaseConfig } from './firebaseConfig'; // Ensure firebaseConfig is imported
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const auth = getAuth(app);
 
 export { auth };

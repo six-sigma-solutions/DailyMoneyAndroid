@@ -1,5 +1,4 @@
 // firebase.native.js - Android Native Firebase ONLY
-import auth from '@react-native-firebase/auth';
 
 // Native Firebase Auth instance
 export const authInstance = auth();

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
-import { resetPassword } from './firebase.native';
+import { Platform } from 'react-native';
+const { resetPassword } = Platform.OS === 'web' ? require('./firebase.js') : require('./firebase.native');
 
 export default function ForgotPasswordScreen() {
   const [email, setEmail] = useState('');

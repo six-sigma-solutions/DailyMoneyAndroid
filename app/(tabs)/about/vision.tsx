@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Animated,
   ImageSourcePropType,
+  Platform,
 } from "react-native";
 import AutoScrollView from '../../../components/AutoScrollView';
 import { useRouter } from "expo-router";
@@ -28,12 +29,12 @@ const Visionmission: React.FC = () => {
       Animated.timing(fadeAnim, {
         toValue: 1,
         duration: 520,
-        useNativeDriver: true,
+        useNativeDriver: Platform.OS !== 'web',
       }),
       Animated.timing(translateYAnim, {
         toValue: 0,
         duration: 520,
-        useNativeDriver: true,
+        useNativeDriver: Platform.OS !== 'web',
       }),
     ]).start();
   }, [fadeAnim, translateYAnim]);
@@ -83,8 +84,8 @@ const Visionmission: React.FC = () => {
     arrowAnims.forEach((anim) => {
       Animated.loop(
         Animated.sequence([
-          Animated.timing(anim, { toValue: 15, duration: 800, useNativeDriver: true }),
-          Animated.timing(anim, { toValue: -15, duration: 800, useNativeDriver: true }),
+          Animated.timing(anim, { toValue: 15, duration: 800, useNativeDriver: Platform.OS !== 'web' }),
+          Animated.timing(anim, { toValue: -15, duration: 800, useNativeDriver: Platform.OS !== 'web' }),
         ])
       ).start();
     });
@@ -119,7 +120,7 @@ const Visionmission: React.FC = () => {
             A brighter world — healthy in spirit, joyful in living, and abundant
             in growth.{"\n"}Living in flow with nature — where wellness
             nourishes wealth and joy sustains growth.{"\n"}Building a future
-            where vitality, happiness, and financial freedom flow as one.{"\n"}
+            where vitality, happiness, and financial independence flow as one.{"\n"}
             To enrich every life with balance, energy, and prosperity.
           </Text>
         </Animated.View>

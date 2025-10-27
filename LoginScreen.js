@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { signIn } from './firebase.native';
+import { Platform } from 'react-native';
+const { signIn } = Platform.OS === 'web' ? require('./firebase.js') : require('./firebase.native');
 
 export default function LoginScreen() {
   const navigation = useNavigation();
@@ -27,8 +28,21 @@ export default function LoginScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
-      <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} autoCapitalize="none" keyboardType="email-address" />
-      <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        value={email}
+        onChangeText={t => { console.log('email:', t); setEmail(t); }}
+        autoCapitalize="none"
+        keyboardType="email-address"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        value={password}
+        onChangeText={t => { console.log('password:', t); setPassword(t); }}
+        secureTextEntry
+      />
 
       <TouchableOpacity style={styles.button} onPress={onLogin} disabled={loading}>
         <Text style={styles.buttonText}>{loading ? 'Logging in...' : 'Login'}</Text>

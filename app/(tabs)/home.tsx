@@ -1,12 +1,6 @@
+
 import React, { useEffect, useState } from "react";
-import { Linking ,
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-  ImageBackground,
-} from "react-native";
+import { Linking, StyleSheet, View, Text, TouchableOpacity, Image, ImageBackground } from "react-native";
 import { Video, ResizeMode } from "expo-av";
 import { LinearGradient } from 'expo-linear-gradient';
 import { Asset } from "expo-asset";
@@ -16,7 +10,7 @@ import MaskedView from "@react-native-masked-view/masked-view";
 import PopupModal from "../../components/PopupModal";
 import AutoScrollView from "../../components/AutoScrollView";
 
-// Data for the bullet points to make the code cleaner
+// Solutions for the bullet points section
 const solutions = [
   "Solutions for Every Stage of Your Health & Wealth Journey.",
   "DM Made Easy, Health & Wealth Made Possible.",
@@ -51,14 +45,19 @@ export default function HomeScreen() {
   const [assetsReady, setAssetsReady] = useState(false);
   const [rerenderKey, setRerenderKey] = useState(0);
 
+// DM hero media fallback URLs (edit as needed)
+const DM_HERO_IMAGE_FALLBACK = "https://placehold.co/350x350/png"; // Replace with your DM phone PNG URL if you have one
+const DM_HERO_VIDEO_URL = ""; // Optional remote MP4 url. Keep empty if you don’t have one.
+
   useEffect(() => {
     let mounted = true;
     (async () => {
       try {
         await Asset.loadAsync([
           require("../../assets/bg-mask.png"),
-          require("../../assets/buddha_grayscale4.png"),
-          require("../../assets/buddha_color4.png"),
+          // (optional) if you actually add these files later:
+          // require("../../assets/dm-hero-phone.mp4"),
+          // require("../../assets/dm-hero-phone.png"),
         ]);
       } catch (e) {
         // ignore – still try to render
@@ -85,7 +84,7 @@ export default function HomeScreen() {
   // AutoScrollView will handle scrolling to top on focus
 
   return (
-    <>
+    <View style={{ flex: 1 }}>
       <PopupModal
         visible={showPopup}
         onClose={() => setShowPopup(false)}
@@ -98,7 +97,7 @@ export default function HomeScreen() {
         }
         buttonText={"Get in →"}
       />
-       <AutoScrollView style={styles.container}>    
+      <AutoScrollView style={styles.container}>
 
       {/* Top banner: DM - Daily Message (45deg gradient) */}
       <LinearGradient
@@ -109,62 +108,39 @@ export default function HomeScreen() {
       >
         <View style={styles.bannerInner}>
           <Text style={styles.bannerTitle}>DM - Daily Message</Text>
-          <Text style={styles.bannerSubtitle}>Health and Freedom</Text>
+          <Text style={styles.bannerSubtitle}>Health and Wellness</Text>
           <Text style={styles.bannerSubtitle}>The World Premium Healthy and Happy Community.</Text>
 
         </View>
       </LinearGradient>
 
  
-      {/* ========== HERO SECTION (FIXED) ========== */}
+      {/* ========== HERO SECTION (STATIC IMAGE) ========== */}
       <View style={styles.heroSection}>
-        {/* Masked Buddha */}
-        {assetsReady ? (
-          <MaskedView
-            key={rerenderKey}
-            style={styles.maskedViewStyle}
-            maskElement={
-              <View
-                style={styles.maskContainer}
-                renderToHardwareTextureAndroid
-                collapsable={false}
-              >
-                <Image
-                  source={require("../../assets/bg-mask.png")}
-                  style={styles.maskImage}
-                />
-              </View>
-            }
-          >
-            {/* Put the hardware hint on a View, not TouchableOpacity */}
-            <View renderToHardwareTextureAndroid>
-              <TouchableOpacity
-                activeOpacity={0.9}
-                onPress={() => setIsGrayscale(!isGrayscale)}
-              >
-                <Image
-                  source={
-                    isGrayscale
-                      ? require("../../assets/buddha_grayscale4.png")
-                      : require("../../assets/buddha_color4.png")
-                  }
-                  style={styles.buddhaImage}
-                />
-              </TouchableOpacity>
-            </View>
-          </MaskedView>
-        ) : (
-          // Placeholder occupies space while assets preload
-          <View style={styles.maskedViewStyle}>
-            <Image
-              source={require("../../assets/buddha_grayscale4.png")}
-              style={styles.buddhaImage}
-            />
-          </View>
-        )}
+  <View style={styles.heroImageBgWrapper}>
+          {/* Mask / background */}
+          <Image
+            source={require("../../assets/cutout-mask.jpg")}
+            style={styles.heroMaskBg}
+            resizeMode="contain"
+            accessibilityLabel="Hero Mask Background"
+          />
 
-        {/* The hero text content now follows the masked image */}
-        <View style={styles.heroContent}>
+          {/* Video on top of the mask */}
+          <Video
+            source={{ uri: "https://res.cloudinary.com/dcthpscqj/video/upload/v1761557798/earth_whtdy6.mp4" }}  // TODO: Replace with your real video URL
+            style={styles.heroVideo}
+            resizeMode={ResizeMode.CONTAIN}
+            shouldPlay
+            isLooping
+            isMuted
+            useNativeControls={false}
+            accessibilityLabel="Daily Message Hero Video"
+            posterSource={{ uri: "https://dmhealthy.com/phone-hero.png" }}
+            posterStyle={{ width: 260, height: 340 }}
+          />
+  </View>
+  <View style={styles.heroContent}>
           <Text style={styles.heroTitle}>
             <Text style={styles.heroRed}>D</Text>
             <Text style={styles.money}>M</Text>
@@ -202,14 +178,10 @@ export default function HomeScreen() {
       {/* ========== "WALK WITH YOU" CARD ========== */}
       <View style={styles.cardSection}>
         <View style={styles.videoCardContainer}>
-          <Video
-            ref={video}
-            style={styles.videoBackground}
-            source={require("../../assets/gif7.mp4")}
-            resizeMode={ResizeMode.COVER}
-            isLooping
-            shouldPlay
-            isMuted
+          <Image
+            style={{ width: '100%', height: '100%', resizeMode: 'contain', borderRadius: 20, backgroundColor: '#000', objectFit: 'fill' }}
+            source={require("../../assets/gif7.png")}
+            accessibilityLabel="Walk With You"
           />
         </View>
       </View>
@@ -296,7 +268,7 @@ export default function HomeScreen() {
         <View style={styles.teamGrid}>
           <View style={styles.teamMemberCard}>
             <Image
-              source={{ uri: "https://via.placeholder.com/120" }}
+              source={{ uri: "https://placehold.co/120" }}
               style={styles.teamMemberImage}
             />
             <Text style={styles.teamMemberName}>S.Vasu</Text>
@@ -304,7 +276,7 @@ export default function HomeScreen() {
           </View>
           <View style={styles.teamMemberCard}>
             <Image
-              source={{ uri: "https://via.placeholder.com/120" }}
+              source={{ uri: "https://placehold.co/120" }}
               style={styles.teamMemberImage}
             />
             <Text style={styles.teamMemberName}>Dr. KP Kosygan</Text>
@@ -312,7 +284,7 @@ export default function HomeScreen() {
           </View>
           <View style={styles.teamMemberCard}>
             <Image
-              source={{ uri: "https://via.placeholder.com/120" }}
+              source={{ uri: "https://placehold.co/120" }}
               style={styles.teamMemberImage}
             />
             <Text style={styles.teamMemberName}>R.K.Selvamani</Text>
@@ -441,8 +413,8 @@ export default function HomeScreen() {
           </View>
         </View>
       </View>
-  </AutoScrollView>
-    </>
+      </AutoScrollView>
+    </View>
   );
 }
 
@@ -452,6 +424,72 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
+  heroVideo: {
+    width: 200,
+    height: 250,
+    zIndex: 2,
+    alignSelf: 'center',
+    marginTop: 25,
+    marginLeft: 10,
+    marginRight: 50,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.5,
+    shadowRadius: 24,
+    opacity:0.9
+    
+  },
+  heroMaskBg: {
+    position: 'absolute',
+    width: 320,
+    height: 400,
+    resizeMode: 'contain',
+    zIndex: 1,
+    left: 25,
+    
+    
+    top: 0,
+  },
+  heroImagePhone: {
+    width: 260,
+    height: 340,
+    resizeMode: 'contain',
+    zIndex: 2,
+    alignSelf: 'center',
+    marginTop: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.5,
+    shadowRadius: 24,
+    elevation: 16,
+  },
+  heroImageBgWrapper: {
+    width: 370,
+    height: 400,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+    alignSelf: 'center',
+  },
+  heroImageBgShape: {
+    position: 'absolute',
+    width: 350,
+    height: 380,
+    backgroundColor: 'black',
+    borderRadius: 40,
+    transform: [{ skewY: '-10deg' }, { rotate: '-8deg' }],
+    left: 10,
+    top: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 24,
+    elevation: 12,
+    zIndex: 1,
+  },
+  // (removed duplicate heroImagePhone style)
   redText: { color: "#b71c1c" },
   // Hero Section
   heroSection: {
@@ -784,25 +822,24 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
-    gap: 25,
   },
   footerLogo: {
-    width: 40,
-    height: 40,
+    width: 100,
+    height: 90,
     resizeMode: "contain",
-    marginLeft:35,
+    marginLeft:0,
   },
   footerLogoText: {
     color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
-    marginTop: 5,
-    marginLeft:36,
+    marginTop: 0,
+    margin:0,
     
   },
   footerAddress: {
     color: "#bdbdbd",
-    marginTop: 1,
+    marginTop: 0,
     fontSize: 13,
     lineHeight: 22,
     marginBottom: 12,

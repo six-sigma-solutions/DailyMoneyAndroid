@@ -6,7 +6,7 @@ import { Link } from 'expo-router'; // Or use react-navigation if needed
 const president = {
   name: "XXXXXX",
   role: "President",
-  image: { uri: "https://via.placeholder.com/150/0d9488/ffffff?text=President" },
+  image: { uri: "https://placehold.co/150x150/0d9488/ffffff?text=President" },
 };
 
 export default function PresidentMsg() {
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   presidentRole: { fontSize: 20, fontWeight: '600', color: '#99f6e4' },
 
   messageContent: { padding: 32 },
-  messageQuote: { fontSize: 16, color: '#fff', lineHeight: 26, marginBottom: 24, paddingLeft: 10, fontStyle: 'italic', textAlign: 'center' },
+  messageQuote: { fontSize: 16, color: '#fff', lineHeight: 26, marginBottom: 24, fontStyle: 'italic', textAlign: 'left' },
   messageParagraph: { fontSize: 16, color: '#fff', lineHeight: 26, marginBottom: 16 },
   
   signatureBlock: { marginTop: 24, alignItems: 'flex-end' },

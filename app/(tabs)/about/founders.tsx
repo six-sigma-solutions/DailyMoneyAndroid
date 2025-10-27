@@ -4,8 +4,8 @@ import AutoScrollView from '../../../components/AutoScrollView';
 import { Link } from 'expo-router'; // or react-navigation if using that
 
 const founder = {
-  name: "Dr.V.Chellapondy",
-  role: "Founder & Financial Advisor",
+  name:"Dr.V.Chellapondy",
+  role: "Founder & CEO",
   image: require('../../../assets/sir.png'), // Adjust your path
 };
 
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     marginTop: 25,
   },
   founderName: {
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: '700',
     color: '#fff',
     marginTop: 16,

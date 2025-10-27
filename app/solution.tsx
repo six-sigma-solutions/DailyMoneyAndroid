@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
 import AutoScrollView from '../components/AutoScrollView';
 import { useRouter } from 'expo-router'; // Or use react-navigation
+import { Platform } from 'react-native';
 
 const images = [
 
@@ -81,10 +82,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     borderRadius: 50,
     marginVertical: 20,
-    shadowColor: '#ffcc00',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.4,
-    shadowRadius: 10,
+    ...Platform.select({
+      web: { boxShadow: '0px 8px 10px rgba(255,204,0,0.4)' },
+      ios: {
+        shadowColor: '#ffcc00',
+        shadowOffset: { width: 0, height: 8 },
+        shadowOpacity: 0.4,
+        shadowRadius: 10,
+      },
+      android: { elevation: 5 },
+    }),
     elevation: 5,
   },
   ctaButtonText: {

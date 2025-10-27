@@ -129,12 +129,12 @@ function PointingIcon() {
     const loop = Animated.loop(
       Animated.sequence([
         Animated.parallel([
-          Animated.timing(translateY, { toValue: 5, duration: 600, useNativeDriver: true }),
-          Animated.timing(opacity, { toValue: 1, duration: 600, useNativeDriver: true }),
+          Animated.timing(translateY, { toValue: 5, duration: 600, useNativeDriver: Platform.OS !== 'web' }),
+          Animated.timing(opacity, { toValue: 1, duration: 600, useNativeDriver: Platform.OS !== 'web' }),
         ]),
         Animated.parallel([
-          Animated.timing(translateY, { toValue: 0, duration: 600, useNativeDriver: true }),
-          Animated.timing(opacity, { toValue: 0.7, duration: 600, useNativeDriver: true }),
+          Animated.timing(translateY, { toValue: 0, duration: 600, useNativeDriver: Platform.OS !== 'web' }),
+          Animated.timing(opacity, { toValue: 0.7, duration: 600, useNativeDriver: Platform.OS !== 'web' }),
         ]),
       ])
     );
@@ -156,10 +156,10 @@ function TeamCard({ member }: { member: Member }) {
   const scale = useRef(new Animated.Value(1)).current;
 
   const onPressIn = () => {
-    Animated.spring(scale, { toValue: 1.03, useNativeDriver: true, friction: 6, tension: 90 }).start();
+  Animated.spring(scale, { toValue: 1.03, useNativeDriver: Platform.OS !== 'web', friction: 6, tension: 90 }).start();
   };
   const onPressOut = () => {
-    Animated.spring(scale, { toValue: 1, useNativeDriver: true, friction: 6, tension: 90 }).start();
+  Animated.spring(scale, { toValue: 1, useNativeDriver: Platform.OS !== 'web', friction: 6, tension: 90 }).start();
   };
 
   const open = () => Linking.openURL(member.link).catch(() => {});
