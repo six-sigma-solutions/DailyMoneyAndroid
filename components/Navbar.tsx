@@ -90,7 +90,7 @@ export default function Navbar() {
             <Text style={styles.menuText}>📞 Contact</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={styles.menuItem}
             accessibilityRole="menuitem"
             accessibilityLabel="Sign Out"
@@ -113,7 +113,7 @@ export default function Navbar() {
             <View style={styles.signingOutRow} pointerEvents="none">
               <Text style={styles.menuText}>Signing out…</Text>
             </View>
-          )}
+          )} */}
         </View>
       </Modal>
     </SafeAreaView>

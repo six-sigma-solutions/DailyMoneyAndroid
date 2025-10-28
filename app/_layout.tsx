@@ -17,9 +17,6 @@ export default function RootLayout() {
         {/* All routes rendered below the Navbar */}
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="signin" options={{ headerShown: false }} />
-          <Stack.Screen name="signup" options={{ headerShown: false }} />
-          <Stack.Screen name="forgot-password" options={{ headerShown: false }} />
         </Stack>
       </View>
     </AuthProvider>

@@ -80,10 +80,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#047871',
     borderRadius: 12,
     overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOpacity: 0.25,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 12 },
+    // Deprecated shadow* props replaced for web compatibility
+    boxShadow: '0px 12px 24px rgba(0,0,0,0.25)',
     elevation: 8,
   },
 
@@ -122,6 +120,8 @@ const styles = StyleSheet.create({
     borderWidth: 8,
     borderColor: '#fff',
     marginTop: 25,
+    // Add boxShadow for web compatibility
+    boxShadow: '0px 4px 24px rgba(0,0,0,0.18)',
   },
   founderName: {
     fontSize: 28,
