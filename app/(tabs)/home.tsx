@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from "react";
 import { Linking, StyleSheet, View, Text, TouchableOpacity, Image, ImageBackground } from "react-native";
-import { Video, ResizeMode } from "expo-av";
+// import { Video } from "expo-video";
+// For resizeMode, use string values like 'contain', 'cover', or 'stretch' as per expo-video docs
 import { LinearGradient } from 'expo-linear-gradient';
 import { Asset } from "expo-asset";
 import { useRouter, useFocusEffect } from "expo-router";
@@ -39,7 +40,7 @@ export default function HomeScreen() {
   // popup state
   const [showPopup, setShowPopup] = useState(false);
 
-  const video = React.useRef<Video>(null);
+  const video = React.useRef(null);
   // State to track if the image is grayscale or color
   const [isGrayscale, setIsGrayscale] = useState(true);
 
@@ -128,18 +129,12 @@ export default function HomeScreen() {
             accessibilityLabel="Hero Mask Background"
           />
 
-          {/* Video on top of the mask */}
-          <Video
-            source={{ uri: "https://res.cloudinary.com/dcthpscqj/video/upload/v1761557798/earth_whtdy6.mp4" }}  // TODO: Replace with your real video URL
+          {/* Static image fallback instead of video to prevent crash */}
+          <Image
+            source={{ uri: "https://dmhealthy.com/phone-hero.png" }}
             style={styles.heroVideo}
-            resizeMode={ResizeMode.CONTAIN}
-            shouldPlay
-            isLooping
-            isMuted
-            useNativeControls={false}
-            accessibilityLabel="Daily Message Hero Video"
-            posterSource={{ uri: "https://dmhealthy.com/phone-hero.png" }}
-            posterStyle={{ width: 260, height: 340 }}
+            resizeMode="contain"
+            accessibilityLabel="Daily Message Hero Image"
           />
   </View>
   <View style={styles.heroContent}>

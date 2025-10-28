@@ -1,10 +1,16 @@
 
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut as firebaseSignOut, onAuthStateChanged, User } from "firebase/auth";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { firebaseConfig } from "../firebaseConfig";
 
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+
+// Optionally set AsyncStorage for Firebase Auth if needed (for older SDKs or custom setups)
+// Example for react-native-firebase or if you see storage errors:
+// import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+// const auth = initializeAuth(app, { persistence: getReactNativePersistence(AsyncStorage) });
 
 
 const auth = getAuth(app);
