@@ -82,7 +82,6 @@ export default function Navbar() {
             <Text style={styles.menuText}>📞 Contact</Text>
           </TouchableOpacity>
 
-
         </View>
       </Modal>
     </SafeAreaView>

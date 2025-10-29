@@ -1,16 +1,3 @@
 .idea/
 .vscode/
 node_modules/
-android/build/
-android/app/build/
-ios/build/
-*.log
-*.tmp
-*.bak
-.git/
-build/
-dist/
-coverage/
-*.iml
-*.swp
-*.DS_Store

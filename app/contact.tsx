@@ -49,7 +49,7 @@ export default function Contact() {
       `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.countryCode} ${form.phone}\nCompany: ${form.company}\n\nMessage:\n${form.message}`
     );
 
-    const mailtoUrl = `sixsigmaspvs@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoUrl = `mailto:sixsigmaspvs@gmail.com?subject=${subject}&body=${body}`;
 
     Linking.openURL(mailtoUrl)
       .then(() => {
@@ -87,22 +87,20 @@ export default function Contact() {
         </Text>
 
         <Text style={[styles.heading, { marginTop: 20 }]}>✉️ Email us</Text>
-       <Text style={styles.link} onPress={() => Linking.openURL("mailto:support@dmhealthy.com")}>
+        <Text style={styles.link} onPress={() => Linking.openURL("mailto:support@dmhealthy.com")}> 
           support@dmhealthy.com
-          
         </Text>
-        <Text style={styles.link} onPress={() => Linking.openURL("mailto: service@dmhealthy.com")}>
+        <Text style={styles.link} onPress={() => Linking.openURL("mailto:service@dmhealthy.com")}> 
           service@dmhealthy.com
-          
         </Text>
 
         <Text style={[styles.heading, { marginTop: 20 }]}>📞 Call us</Text>
-        <Text style={styles.link} onPress={() => Linking.openURL("tel: +91 7904373255")}>
+        <Text style={styles.link} onPress={() => Linking.openURL("tel:+917904373255")}> 
           +91 79043 73255
         </Text>
 
         <View style={styles.socials}>
-          <TouchableOpacity onPress={() => Linking.openURL("https://x.com/cpdian?s=11")}>
+          <TouchableOpacity onPress={() => Linking.openURL("https://x.com/cpdian?s=11")}> 
             <FontAwesome name="twitter" size={22} color="#0a66c2" />
           </TouchableOpacity>
           <TouchableOpacity
@@ -121,7 +119,7 @@ export default function Contact() {
           >
             <FontAwesome name="instagram" size={22} color="#e1306c" />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => Linking.openURL("tel:+919884590009")}>
+          <TouchableOpacity onPress={() => Linking.openURL("tel:+919884590009")}> 
             <FontAwesome name="phone" size={22} color="#4CAF50" />
           </TouchableOpacity>
         </View>

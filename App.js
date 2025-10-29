@@ -6,8 +6,7 @@ import LoginScreen from './LoginScreen';
 import RegisterScreen from './RegisterScreen';
 import ForgotPasswordScreen from './ForgotPasswordScreen';
 import HomeScreen from './HomeScreen';
-import { Platform } from 'react-native';
-const { onAuthStateChanged, signOut } = Platform.OS === 'web' ? require('./firebase.js') : require('./firebase.native');
+import { onAuthStateChanged, signOut } from './firebase.js';
 
 const Stack = createNativeStackNavigator();
 
