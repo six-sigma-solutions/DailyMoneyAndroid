@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import { View, Image, Text, TouchableOpacity, StyleSheet, Platform, Modal, TouchableWithoutFeedback, useWindowDimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link , useRouter } from "expo-router";
-import { useAuth } from '../contexts/AuthContext';
+// import { useAuth } from '../contexts/AuthContext';
 
 const BAR_HEIGHT = 65;       // fixed visual height for the row
 const BUTTON_HEIGHT = 35;    // fixed button height (no vertical padding)
 
 export default function Navbar() {
   const router = useRouter();
-  const auth = useAuth();
+  // const auth = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [signingOut, setSigningOut] = useState(false);
   const { width: windowWidth } = useWindowDimensions();
 
   // compute a responsive logo width: between 90 and 160, relative to screen width
@@ -27,14 +26,7 @@ export default function Navbar() {
   }
 
 
-  async function onLogout() {
-    try {
-      await auth.signOut();
-      router.replace('/signin');
-    } catch (err) {
-      console.error('Logout failed', err);
-    }
-  }
+
 
   return (
     // Only paint background behind the status bar, don’t add bottom insets
@@ -90,30 +82,7 @@ export default function Navbar() {
             <Text style={styles.menuText}>📞 Contact</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.menuItem}
-            accessibilityRole="menuitem"
-            accessibilityLabel="Sign Out"
-            onPress={async () => {
-              setMenuOpen(false);
-              setSigningOut(true);
-              try {
-                await onLogout();
-              } catch (e) {
-                console.error(e);
-              } finally {
-                setSigningOut(false);
-              }
-            }}
-          >
-            <Text style={[styles.menuText, { color: '#E21212' }]}>🚪 Sign Out</Text>
-          </TouchableOpacity>
 
-          {signingOut && (
-            <View style={styles.signingOutRow} pointerEvents="none">
-              <Text style={styles.menuText}>Signing out…</Text>
-            </View>
-          )}
         </View>
       </Modal>
     </SafeAreaView>

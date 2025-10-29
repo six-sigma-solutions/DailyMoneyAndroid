@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { onAuth, signOut } from '../lib/firebase';
+/*import React, { createContext, useContext, useEffect, useState } from 'react';
+// import { onAuth, signOut } from '../lib/firebase';
 
 type AuthContextType = {
   user: any | null;
@@ -24,46 +24,46 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setLoading(false);
     }, 5000);
 
-    unsub = onAuth((u) => {
-      // auth responded; clear the safety timeout and update state
-      try {
-        clearTimeout(safetyTimeout);
-      } catch (e) {}
-      setUser(u);
-      setLoading(false);
-    });
+//    // unsub = onAuth((u) => {
+//       // auth responded; clear the safety timeout and update state
+//       try {
+//         clearTimeout(safetyTimeout);
+//       } catch (e) {}
+//       setUser(u);
+//       setLoading(false);
+//     });
 
-    return () => {
-      try {
-        if (unsub) unsub();
-      } catch (e) {
-        // ignore
-      }
-      try {
-        clearTimeout(safetyTimeout);
-      } catch (e) {}
-    };
-  }, []);
+//     return () => {
+//       try {
+//         if (unsub) unsub();
+//       } catch (e) {
+//         // ignore
+//       }
+//       try {
+//         clearTimeout(safetyTimeout);
+//       } catch (e) {}
+//     };
+//   }, []);
 
 
-  async function signOutHandler() {
-    try {
-      await signOut();
-      setUser(null);
-    } catch (err) {
-      console.warn('signOut failed', err);
-    }
-  }
+//   async function signOutHandler() {
+//     try {
+//       await signOut();
+//       setUser(null);
+//     } catch (err) {
+//       console.warn('signOut failed', err);
+//     }
+//   }
 
-  return (
-    <AuthContext.Provider value={{ user, loading, signOut: signOutHandler }}>{children}</AuthContext.Provider>
-  );
-}
+//   return (
+//     <AuthContext.Provider value={{ user, loading, signOut: signOutHandler }}>{children}</AuthContext.Provider>
+//   );
+// }
 
-export function useAuth() {
-  const ctx = useContext(AuthContext);
-  if (!ctx) throw new Error('useAuth must be used within AuthProvider');
-  return ctx;
-}
+// export function useAuth() {
+//   const ctx = useContext(AuthContext);
+//   if (!ctx) throw new Error('useAuth must be used within AuthProvider');
+//   return ctx;
+// }
 
-export default AuthContext;
+  */

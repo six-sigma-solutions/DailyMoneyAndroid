@@ -87,13 +87,18 @@ export default function Contact() {
         </Text>
 
         <Text style={[styles.heading, { marginTop: 20 }]}>✉️ Email us</Text>
-        <Text style={styles.link} onPress={() => Linking.openURL("mailto:cpdian@gmail.com")}>
-          cpdian@gmail.com
+       <Text style={styles.link} onPress={() => Linking.openURL("mailto:support@dmhealthy.com")}>
+          support@dmhealthy.com
+          
+        </Text>
+        <Text style={styles.link} onPress={() => Linking.openURL("mailto: service@dmhealthy.com")}>
+          service@dmhealthy.com
+          
         </Text>
 
         <Text style={[styles.heading, { marginTop: 20 }]}>📞 Call us</Text>
-        <Text style={styles.link} onPress={() => Linking.openURL("tel:+919884590009")}>
-          +91 98845 90009
+        <Text style={styles.link} onPress={() => Linking.openURL("tel: +91 7904373255")}>
+          +91 79043 73255
         </Text>
 
         <View style={styles.socials}>

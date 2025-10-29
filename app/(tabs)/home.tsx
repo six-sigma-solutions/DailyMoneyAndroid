@@ -25,7 +25,7 @@ const philosophyPoints = [
   "Every Stage, Every Step , Health & Wealth Solutions.",
   "DM Your Balance Life. Build Your Health. Grow Your Wealth.",
   "Small Income Wins, Big Health & Wealth Gains.",
-  "Simplify DM. Strengthen Health. Secure Wealth.",
+  "Simplify with DM. Strengthen Health. Secure Wealth.",
   "Master Your Day, Master Your Health, Master Your Well-being.",
   "Turn Daily Financial Actions into a Lifetime of Health and Wealth.",
   "Live Well, Live Wealthy, Every Single Day.",
